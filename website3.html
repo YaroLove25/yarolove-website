@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YaroLove | Luxury Lingerie Boutique</title>
+  <meta name="description" content="YaroLove offers exquisite luxury lingerie in yellow, purple, and gold tones. Discover elegance and sensuality with our Lace, Satin, and Silk collections." />
+  <meta name="author" content="YaroLove" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a2e060a0ce.js" crossorigin="anonymous" defer></script>
+
+  <style>
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #fffbea;
+      color: #3a0ca3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    a:focus-visible {
+      outline: 3px solid #ffde59;
+      outline-offset: 3px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(90deg, #ffd600 0%, #6a1b9a 50%, #ffd600 100%);
+      padding: 1.2rem 3rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(106, 27, 154, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 2.8rem;
+      color: #fff;
+      letter-spacing: 0.15em;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .logo:hover,
+    .logo:focus {
+      color: #ffde59;
+      outline: none;
+      cursor: pointer;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    nav a {
+      font-weight: 600;
+      font-size: 1.05rem;
+      padding: 0.4rem 0.6rem;
+      border-radius: 8px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      color: #fff;
+      user-select: none;
+    }
+    nav a:hover,
+    nav a:focus-visible {
+      background-color: #ffde59;
+      color: #6a1b9a;
+      outline-offset: 2px;
+      outline: none;
+    }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 3rem auto 4rem;
+      padding: 0 1.5rem;
+      flex-grow: 1;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 0 1rem;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 3.6rem);
+      font-weight: 700;
+      color: #4a148c;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+    .hero p {
+      font-weight: 500;
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      color: #6a1b9a;
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-style: italic;
+      letter-spacing: 0.03em;
+    }
+
+    /* Brand statement */
+    .brand-desc {
+      max-width: 850px;
+      margin: 0 auto 5rem;
+      padding: 1.5rem 2rem;
+      background: linear-gradient(90deg, #ffde59 0%, #b38600 100%);
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(179, 134, 0, 0.3);
+      color: #4a148c;
+      font-size: 1.15rem;
+      font-weight: 600;
+      font-style: normal;
+      text-align: center;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+      user-select: text;
+      transition: box-shadow 0.4s ease;
+    }
+    .brand-desc:hover,
+    .brand-desc:focus-within {
+      box-shadow: 0 0 40px rgba(179, 134, 0, 0.7);
+      outline: none;
+    }
+
+    /* Collections grid */
+    .collections {
+      display: grid;
+      gap: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      margin-bottom: 5rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(106, 27, 154, 0.18);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .card:focus-within,
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 22px 45px rgba(106, 27, 154, 0.4);
+      outline: none;
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: center;
+      transition: filter 0.3s ease;
+    }
+    .card:hover img,
+    .card:focus-within img {
+      filter: brightness(1.1);
+    }
+
+    .card-content {
+      padding: 1.6rem 2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.7rem;
+      color: #4a148c;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.05em;
+      user-select: text;
+    }
+    .card-desc {
+      flex-grow: 1;
+      color: #6a1b9a;
+      font-size: 1.05rem;
+      line-height: 1.45;
+      margin-bottom: 1.6rem;
+      user-select: text;
+    }
+    .card-link {
+      align-self: flex-start;
+      padding: 0.8rem 2rem;
+      background: linear-gradient(90deg, #ffd600, #b38600);
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #4a148c;
+      box-shadow: 0 6px 16px rgba(179, 134, 0, 0.5);
+      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+      text-align: center;
+      text-decoration: none;
+    }
+    .card-link:hover,
+    .card-link:focus-visible {
+      background: #6a1b9a;
+      color: #fffbea;
+      box-shadow: 0 10px 28px rgba(106, 27, 154, 0.75);
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #4a148c;
+      color: #ffde59;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      user-select: none;
+      box-shadow: inset 0 2px 10px rgba(255 222 89 / 0.3);
+    }
+
+    .social-links {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .social-links a {
+      color: #ffde59;
+      font-size: 1.9rem;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+    .social-links a:hover,
+    .social-links a:focus-visible {
+      color: #fffbea;
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem 1.5rem;
+      }
+      nav ul {
+        gap: 1.4rem;
+      }
+      main {
+        margin: 2rem auto 3rem;
+      }
+      .brand-desc {
+        font-size: 1.05rem;
+        padding: 1.3rem 1.6rem;
+      }
+      .card img {
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      .card-content {
+        padding: 1rem 1.4rem;
+      }
+      .card-link {
+        padding: 0.7rem 1.6rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header role="banner" aria-label="Primary site navigation">
+  <a href="#home" class="logo" tabindex="0" aria-label="Go to YaroLove homepage">YaroLove</a>
+  <nav role="navigation" aria-label="Main menu">
+    <ul>
+      <li><a href="#home" tabindex="0">Home</a></li>
+      <li><a href="#lace" tabindex="0">Lace</a></li>
+      <li><a href="#satin" tabindex="0">Satin</a></li>
+      <li><a href="#silk" tabindex="0">Silk</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="home" tabindex="-1">
+  <section class="hero" aria-label="Welcome message">
+    <h1>Luxury Lingerie Crafted to Celebrate You</h1>
+    <p>Discover YaroLove — where elegance meets passion. Our curated lingerie collections blend luxurious fabrics and intricate designs to empower your confidence and sensuality.</p>
+  </section>
+
+  <section class="brand-desc" aria-label="About YaroLove Brand Statement" tabindex="0">
+    At YaroLove, we believe lingerie is more than just clothing — it’s a celebration of individuality, beauty, and confidence. Crafted with the finest materials in vibrant yellow, royal purple, and golden hues, our collections transform everyday moments into extraordinary experiences. Indulge yourself with elegance and style that speak volumes without saying a word.
+  </section>
+
+  <section class="collections" aria-label="YaroLove Lingerie Collections">
+
+    <article class="card" id="lace" tabindex="0" aria-labelledby="lace-title" aria-describedby="lace-desc">
+      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Delicate Lace Lingerie Set" loading="lazy" />
+      <div class="card-content">
+        <h2 id="lace-title" class="card-title">Lace Collection</h2>
+        <p id="lace-desc" class="card-desc">Timeless and delicate lace designs that blend sensuality with sophistication. Perfect for those special moments or everyday elegance.</p>
+        <a href="https://instagram.com/yarolove" target="_blank" rel="noopener noreferrer" class="card-link" aria-label="Shop Lace Collection via Instagram Direct Message">Shop via Instagram DM</a>
+      </div>
+    </article>
+
+    <article class="card" id="satin" tabindex="0" aria-labelledby="satin-title" aria-describedby="satin-desc">
+      <img src="https://images.unsplash.com/photo-1559648563-c788287fa7f3?auto=format&fit=crop&w=600&q=80" alt="Smooth Satin Lingerie Set" loading="lazy" />
+      <div class="card-content">
+        <h2 id="satin-title" class="card-title">Satin Collection</h2>
+        <p id="satin-desc" class="card-desc">Smooth, silky satin lingerie sets designed to caress your skin and elevate your allure with every wear.</p>
+        <a href="https://instagram.com/yarolove" target="_blank" rel="noopener noreferrer" class="card-link" aria-label="Shop Satin Collection via Instagram Direct Message">Shop via Instagram DM</a>
+      </div>
+    </article>
+
+    <article class="card" id="silk" tabindex="0" aria-labelledby="silk-title" aria-describedby="silk-desc">
+      <img src="https://images.unsplash.com/photo-1520975912410-54bb4da5e1c2?auto=format&fit=crop&w=600&q=80" alt="Luxurious Silk Lingerie Set" loading="lazy" />
+      <div class="card-content">
+        <h2 id="silk-title" class="card-title">Silk Collection</h2>
+        <p id="silk-desc" class="card-desc">Experience ultimate luxury with our pure silk lingerie — soft, elegant, and designed to make you feel irresistible.</p>
+        <a href="https://instagram.com/yarolove" target="_blank" rel="noopener noreferrer" class="card-link" aria-label="Shop Silk Collection via Instagram Direct Message">Shop via Instagram DM</a>
+      </div>
+    </article>
+
+  </section>
+</main>
+
+<footer role="contentinfo">
+  <p>&copy; 2025 YaroLove. All rights reserved.</p>
+  <div class="social-links" aria-label="Social media links">
+    <a href="https://instagram.com/yarolove" target="_blank" rel="noopener noreferrer" aria-label="Visit YaroLove Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+  </div>
+</footer>
+
+</body>
+</html>
